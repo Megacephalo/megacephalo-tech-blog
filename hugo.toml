@@ -1,0 +1,10 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = "hugo-bearcub"
+
+# Generate a nice robots.txt for SEO
+defaultContentLanguage = "en"
+
+
+
