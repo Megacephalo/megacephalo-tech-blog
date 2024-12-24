@@ -82,3 +82,47 @@ hugo new ontent content/posts/your_article.md
 ```
 
 Replace with the actual path to your new article.
+
+# Adding math expressions
+
+The following piece of information is extracted from the official example site [math-typesetting.d](https://github.com/clente/hugo-bearcub/blob/main/exampleSite/content/blog/math-typesetting.md).
+
+Under `themes/hugo-bearcub/` look for `layouts/partials/` and create `math.html` under it. In the created HTML file, insert the following:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "\\[", right: "\\]", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false }
+            ]
+        });
+    });
+</script>
+```
+
+This script will reference the Auto-renderer Extension. You can host this extension locally.
+
+Next, include the partial in `themes/hugo-bearcub/layouts/_default/baseof.html`like so
+```
+{ if or .Params.math .Site.Params.math }}
+{{ partial "math.html" . }}
+{{ end }}
+```
+To enable Katex globally set the parammeter `math` under __hugo.toml__ as true
+
+```
+[paras]
+
+math = true
+```
+
+To enable Katex on a per page basis include the parameter `math = true` in the content file content matter.
+
+
