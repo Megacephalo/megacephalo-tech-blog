@@ -74,3 +74,11 @@ For local hosting.
 ```
 https://megacephalo.github.io/megacephalo-tech-blog/
 ```
+
+# To add new article
+
+```bash
+hugo new ontent content/posts/your_article.md
+```
+
+Replace with the actual path to your new article.
