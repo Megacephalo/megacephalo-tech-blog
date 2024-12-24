@@ -1,6 +1,6 @@
 +++
 date = '2024-12-23T18:23:08+08:00'
-draft = true
+draft = false
 title = 'Line fitting'
 math = true
 +++
